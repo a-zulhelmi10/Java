@@ -1,0 +1,31 @@
+package football;
+
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+
+public class PlayerServlet extends HttpServlet {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		PrintWriter out = response.getWriter();
+		ServletConfig config = getServletConfig();
+		response.setContentType("text/html");
+		String fname = request.getParameter("fname");
+		String position = request.getParameter("position");
+		double salary= Double.parseDouble(request.getParameter("salary"));
+		String club = config.getInitParameter("club");
+		out.println("<p>Football Club: '"+club+"' </p>");
+		out.println("<p>Player Name: '"+fname+"'</p>");
+		out.println("<p>Position: '"+position+"'</p>");
+		out.println("<p>Salary: '"+salary+"'</p>");
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login Page</title>
+</head>
+<body>
+	<h3 style="color: Orange">LOGIN TO WEBSITE</h3>
+	<form name="xxx" action="LoginWeb.jsp" method="post" onSubmit="return validate()">
+		Username: <input type="text" name="username" placeholder="Enter your username..." /><br> 
+		password: <input type="password" name="password" placeholder="Enter your password..." /><br>
+		<input type="submit" value="login"/>
+	</form>
+	New user? Register <a href="/Login/Register">here</a><br>
+</body>
+<script type="text/javascript">
+	function validate(){
+		var username = document.xxx.username.value;
+		var password = document.xxx.password.value;
+		if (username == null || username == ""){
+			alert("Username cannot be empty");
+			return false;
+		}
+		if (password == null || password == ""){
+			alert("Password cannot be empty");
+			return false;
+		}
+		return true;
+	}
+
+</script>
+</html>

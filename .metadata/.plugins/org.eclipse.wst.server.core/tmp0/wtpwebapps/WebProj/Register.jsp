@@ -1,0 +1,39 @@
+<body>
+	<h3>Registration Page</h3>
+	<form name="regForm" action="/WebProj/RegisterServlet" method="post" onSubmit="return validate()">
+		Name : <input type="text" name="name"/><br>
+		Username : <input type="text" name="username"/><br>
+		Password : <input type="password" name="password"/><br>
+		Re-Type : <input type="password" name="rePassword"/><br>
+		<input type="submit" value="Register"/>
+	</form>
+	<script>
+		function validate(){
+			var x1 = document.regForm.name.value;
+			var x2 = document.regForm.username.value;
+			var x3 = document.regForm.password.value;
+			var x4 = document.regForm.rePassword.value;
+			if (x1 == null || x1 == "")
+			{
+				alert("Please fill in the Name");
+				return false;
+			}
+			if (x2 == null || x2 == "")
+			{
+				alert("Please fill in the Username");
+				return false;
+			}
+			if (x3 == null || x3 == "")
+			{
+				alert("Please fill in the Password");
+				return false;
+			}
+			if (x4 != x3)
+			{
+				alert("Password does not match");
+				return false;
+			}
+			return true;
+		}
+	</script>
+</body>
